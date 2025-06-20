@@ -7,16 +7,14 @@ jobs:
     steps:
       - name: Descargar el repo
         uses: actions/checkout@v4
-      - name: Configure Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.x'
-      - name: Install dependencies
+
+      - name: Verificar Node.js instalado
+        run: node -v
+
+      - name: Instalar dependencias
         working-directory: ./calculadora
-        run: |
-          npm ci
+        run: npm ci
+
       - name: Compilar el aplicativo
         working-directory: ./calculadora
-        run: |
-          npm run build
- 
+        run: npm run build
